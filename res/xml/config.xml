@@ -23,11 +23,11 @@
     <name>Hello Cordova</name>
 
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+       aplicacion para ver informacion de Gasolineras y Calcular consumo por recorrido
     </description>
 
-    <author href="http://cordova.io" email="dev@cordova.apache.org">
-        Apache Cordova Team
+    <author href="https://www.facebook.com/messages/1793025024" >
+        Racso Team
     </author>
 
     <access origin="*"/>
@@ -35,7 +35,9 @@
     <!-- <content src="http://mysite.com/myapp.html" /> for external pages -->
     <content src="index.html" />
 
-    <preference name="loglevel" value="DEBUG" />
+    <preference name="loglevel" value="DEBUG" /> 
+    <preference name="SplashScreen" value="splash" />
+<preference name="SplashScreenDelay" value="17000" />
     <!--
       <preference name="splashscreen" value="resourceName" />
       <preference name="backgroundColor" value="0xFFF" />
