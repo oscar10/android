@@ -13,7 +13,7 @@ public class MainActivity extends DroidGap
        // super.loadUrl(Config.getStartUrl(),2000);
         //super.loadUrl("file:///android_asset/www/index.html")
        super.setIntegerProperty("splashscreen", R.drawable.splash);
-       super.loadUrl("file:///android_asset/www/index.html",17000);
+       super.loadUrl("file:///android_asset/www/rutas.html",17000);
         
     }
 }

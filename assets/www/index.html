@@ -21,21 +21,21 @@
                 <h1>Menu</h1>
              </div>          
                 <ul>
-                    <li><a  onclick="$('#rightt a').attr('href','#panel-03');  $('#bus').css({'display': 'block'});  $('#gmap-mixed').css({'display': 'block'}); $('#gmap-mixed1').css({'display': 'none'}); $('#route').css({'display': 'none'}); " href="#panel-03" title="mapa" ><img src="img/ic_action_place.png"/>Ver Mapa...</a></li>
-                    <li><a  onclick="$('#rightt a').attr('href','#panel-02');  $('#bus').css({'display': 'none'}); $('#gmap-mixed1').css({'display': 'block'}); $('#gmap-mixed').css({'display': 'none'}); $('#route').css({'display': 'block'}); " href="#panel-02" title="formulario"><img src="img/ic_action_view_as_list.png"/>Formulario</a></li>
-                    <li><a href="#" title="noticias"><img src="img/ic_action_group.png"/>Noticia</a></li>
+                    <li><a  onclick="$('#rightt a').attr('href','#panel-03');  $('#bus').css({'display': 'block'});  $('#gmap-mixed').css({'display': 'block'}); $('#gmap-mixed1').css({'display': 'none'}); $('#route').css({'display': 'none'}); " href="#panel-03" title="mapa" ><img src="img/ic_action_place.png"/>Mapa de Gasolineras</a></li>
+                    <li><a  onclick="$('#rightt a').attr('href','#panel-02');  $('#bus').css({'display': 'none'}); $('#gmap-mixed1').css({'display': 'block'}); $('#gmap-mixed').css({'display': 'none'}); $('#route').css({'display': 'block'}); " href="#panel-02" title="formulario"><img src="img/ic_action_view_as_list.png"/>Calculadora de ruta</a></li>
+                    <!--<li><a href="#" title="noticias"><img src="img/ic_action_group.png"/>Noticia</a></li>-->
                 </ul>
         </div>
         <!-- este  div es para el central -->
             <div class="header" data-role="header">
                 <span class="open left"><a href="#panel-01">&#61641;</a></span>
-                <span class="title">Gasolineras</span>
+                <span class="title">Gasolineras de Bolivia</span>
                 <span id="rightt" class="open right"><a id="vmap" href="#panel-03">&#9776;</a></span>
             </div>
         <!-- aca siempre el mapa -->
             <div class="content" data-role="content" >
                 <div id="bus" style="position: relative;">
-                    <input type="text" data-mini="true" value="" id="searchbox" class="controls"  placeholder="Buscar..." style=" width:100%;height:30px; font-size:15px;">
+                    <input type="text" data-mini="true" value="" id="searchbox" class="controls"  placeholder="Escriba una ciudad o población...." style=" width:100%;height:30px; font-size:15px;">
                 </div> 
                 <div align="left" id="gmap-mixed" style="width: 100%;height:80%">   
                 </div>   
@@ -47,28 +47,28 @@
        <div class="panel right" data-role="panel" data-position="right" data-display="overlay" id="panel-02">
             <div data-role="header" data-rel="close">
                 
-                <h2>Formulario</h2>
+                <h2>Calculadora</h2>
            </div> 
            <div data-role="content">
                 <fieldset>
                     <label >* Punto Partida:</label>
-                    <input tabindex="1" type="text" value="" id="inicio" />
+                    <input tabindex="1" type="text" value="" id="inicio" placeholder="Escriba una ciudad o población"/>
                     <label>* Punto LLegada</label>
-                    <input tabindex="2" value="" type="text" id="fin" />
-                    <label>kilometros total</label>
+                    <input tabindex="2" value="" type="text" id="fin" placeholder="Escriba una ciudad o población" />
+                    <label>Total de kms.</label>
                     <input value="" type="text" id="km" name="km" onblur="validar(this)"/>     
                 </fieldset>
                
                 <fieldset>
                     <label>* Placa</label>
                     <select id="placa" onchange="cargarcombustibles()">
-                         <option value='' tabindex="3">seleccione</option>
+                         <option value='' tabindex="3">Seleccione</option>
                          <option>NACIONAL</option>
                          <option>INTERNACIONAL</option>
                     </select> 
                     <label>* Combustible</label>
                     <select  id="combustible" onchange="pr()">
-                         <option tabindex="4">seleccione</option>
+                         <option tabindex="4">Seleccione</option>
                     </select>
                 </fieldset>
                
@@ -79,12 +79,12 @@
                
                 <fieldset>
                     <label>* Rendimiento del Motor</label>
-                    <input tabindex="5" type="text" id="precio" onkeypress="validarSiNumero(this)" value="" placeholder="Cuando Rinde su Motor?"/>
+                    <input tabindex="5" type="text" id="precio" onkeypress="validarSiNumero(this)" value="" placeholder="Ingrese cantidad de kms/lt"/>
                     <label id="formato"></label>
                 </fieldset>
                
                 <fieldset>   
-                    <label>Total a Pagar</label>
+                    <label>Total a Pagar en Bs.</label>
                     <input type="text" id="total"  value=""/>
                 </fieldset>
                
