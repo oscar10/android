@@ -1,0 +1,149 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.1"> 
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="js/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>  
+    <link rel="stylesheet" href="css/style.mobile.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.mobile.js"></script>
+    <script src="js/maplace.js"></script>
+    <script src="js/ajax.js"></script>
+</head>
+
+<body>
+    <div class="demo-wrapper" data-role="page" id="mypanel">
+        <!-- panel 01 -->
+        <div class="panel left" data-role="panel" data-position="left" data-display="push" id="panel-01">
+             <div data-role="header">            
+                <h1>Menu</h1>
+             </div>          
+                <ul>
+                    <li><a  onclick="$('#rightt a').attr('href','#panel-03');  $('#bus').css({'display': 'block'});  $('#gmap-mixed').css({'display': 'block'}); $('#gmap-mixed1').css({'display': 'none'}); $('#route').css({'display': 'none'}); cargarmap();" href="#panel-03" title="mapa" ><img src="img/ic_action_place.png"/>Ver Mapa...</a></li>
+                    <li><a  onclick="$('#rightt a').attr('href','#panel-02');  $('#bus').css({'display': 'none'}); $('#gmap-mixed1').css({'display': 'block'}); $('#gmap-mixed').css({'display': 'none'}); $('#route').css({'display': 'block'}); " href="#panel-02" title="formulario"><img src="img/ic_action_view_as_list.png"/>Formulario</a></li>
+                    <li><a href="#" title="noticias"><img src="img/ic_action_group.png"/>Noticia</a></li>
+                </ul>
+        </div>
+        <!-- este  div es para el central -->
+            <div class="header" data-role="header">
+                <span class="open left"><a href="#panel-01">&#61641;</a></span>
+                <span class="title">Gasolineras</span>
+                <span id="rightt" class="open right"><a id="vmap" href="#panel-02">&#9776;</a></span>
+            </div>
+        <!-- aca siempre el mapa -->
+            <div class="content" data-role="content" >
+                <div id="bus" style="position: relative;">
+                    <input type="text" data-mini="true" value="" id="searchbox" class="controls"  placeholder="Buscar..." style=" width:100%;height:30px; font-size:15px;">
+                </div> 
+                <div align="left" id="gmap-mixed" style="width: 100%;height:80%; display: none;">   
+                </div>   
+                <div align="left" id="gmap-mixed1" style="100%;height:80%">   
+                </div>                 
+                <div align="left" id="route" style=" margin-top: 10px;">   
+            	</div>
+    	<!-- panel 02 formulario -->
+       <div class="panel right" data-role="panel" data-position="right" data-display="overlay" id="panel-02">
+            <div data-role="header" data-rel="close">
+                
+                <h2>Formulario</h2>
+            </div> 
+           <div data-role="content">
+                <fieldset>
+                    <label >* Punto Partida:</label>
+                    <input tabindex="1" type="text" value="" id="inicio" />
+                    <label>* Punto LLegada</label>
+                    <input tabindex="2" value="" type="text" id="fin" />
+                    <label>kilometros total</label>
+                    <input value="" type="text" id="km" name="km" onblur="validar(this)"/>     
+                </fieldset>
+               
+                <fieldset>
+                    <label>* Placa</label>
+                    <select id="placa" onchange="cargarcombustibles()">
+                         <option value='' tabindex="3">seleccione</option>
+                         <option>NACIONAL</option>
+                         <option>INTERNACIONAL</option>
+                    </select> 
+                    <label>* Combustible</label>
+                    <select  id="combustible" onchange="pr()">
+                         <option tabindex="4">seleccione</option>
+                    </select>
+                </fieldset>
+               
+                <fieldset>
+                    <label>Precio</label>
+                    <input type="text" id="preciocom" /> 
+                </fieldset>
+               
+                <fieldset>
+                    <label>* Rendimiento del Motor</label>
+                    <input tabindex="5" type="text" id="precio" onkeypress="validarSiNumero(this)" value="" placeholder="Cuando Rinde su Motor?"/>
+                    <label id="formato"></label>
+                </fieldset>
+               
+                <fieldset>   
+                    <label>Total a Pagar</label>
+                    <input type="text" id="total"  value=""/>
+                </fieldset>
+               
+                <fieldset>
+                    <button tabindex="6" onclick="convertir();">Calcular</button>
+                </fieldset>
+         </div> 
+
+      </div>
+        <!-- para lo botones -->
+      <div class="panel right" data-role="panel" data-position="right" data-display="overlay" id="panel-03">
+        <div data-role="header" data-rel="close">
+            <h2>Vistas</h2>
+        </div> 
+        <div id="cargando" style="width:100%"></div>
+        <div id="check" data-role="fieldcontain" class="ui-field-contain ui-body ui-br" >
+            <fieldset  data-role="controlgroup" data-type="horizontal" class="ui-corner-all ui-controlgroup ui-controlgroup-horizontal" aria-disabled="false" data-disabled="false" data-shadow="false" data-corners="true" data-exclude-invisible="true" data-mini="false" data-init-selector=":jqmData(role='controlgroup')">            
+                
+                <div class="ui-controlgroup-controls">
+                    <div  class="ui-checkbox" >
+                        <input value="NO" onclick="get_jsonp_tipos('gnv')" type="checkbox" name="gnv" id="gnv" class="custom">
+                        <label for="gnv" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="checkbox-on" data-theme="c" data-mini="false" class="ui-first-child ui-checkbox-on ui-btn-active ui-btn ui-btn-corner-all ui-fullsize ui-btn-icon-left ui-btn-up-c">
+                            <span class="ui-btn-inner">
+                                <span class="ui-btn-text">GNV</span>
+                                <span class="ui-icon ui-icon-checkbox-on ui-icon-shadow">&nbsp;</span>
+                            </span>
+                        </label>
+                    </div>
+                    
+                    <div  class="ui-checkbox" >
+                        <input value="NO" onclick="get_jsonp_tipos('gasolina')" type="checkbox" name="gasolina" id="gasolina" class="custom">
+                        <label for="gasolina" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="checkbox-on" data-theme="c" data-mini="false" class="ui-checkbox-on ui-btn-active ui-btn ui-btn-corner-all ui-fullsize ui-btn-icon-left ui-btn-up-c">
+                            <span class="ui-btn-inner">
+                                <span class="ui-btn-text"><em>Gasolina</em></span>
+                                <span class="ui-icon ui-icon-checkbox-on ui-icon-shadow">&nbsp;</span>                                  
+                            </span>
+                        </label>
+                    </div>
+                   
+                    <div  class="ui-checkbox" >
+                        <input value="NO" onclick="get_jsonp_tipos('diesel')" type="checkbox" name="diesel" id="diesel" class="custom">
+                        <label for="diesel" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="checkbox-off" data-theme="c" data-mini="false" class="ui-checkbox-off ui-btn ui-btn-corner-all ui-fullsize ui-btn-icon-left ui-last-child ui-btn-up-c">
+                            <span class="ui-btn-inner">
+                                <span class="ui-btn-text">Diesel</span>
+                                <span class="ui-icon ui-icon-checkbox-off ui-icon-shadow">&nbsp;</span>
+                            </span>
+                        </label>
+                    </div>
+              
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function () {
+        
+        $("#vmap").click();
+});
+</script>
+</body>
+</html>

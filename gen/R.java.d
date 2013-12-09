@@ -1,0 +1,27 @@
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\gen\bo\gob\gasolinera\R.java \
+ : C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\res\drawable\icon.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\res\drawable-hdpi\icon.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\res\drawable-hdpi\ic_launcher.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\res\drawable-hdpi\splash.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\res\drawable-ldpi\icon.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\res\drawable-ldpi\ic_launcher.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\res\drawable-ldpi\splash.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\res\drawable-mdpi\icon.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\res\drawable-mdpi\ic_launcher.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\res\drawable-mdpi\splash.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\res\drawable-xhdpi\icon.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\res\drawable-xhdpi\ic_launcher.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\res\drawable-xhdpi\splash.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\res\layout\main.xml \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\res\values\strings.xml \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\res\xml\config.xml \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\bin\res\drawable\icon.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\bin\res\drawable-hdpi\icon.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\bin\res\drawable-hdpi\ic_launcher.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\bin\res\drawable-ldpi\icon.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\bin\res\drawable-ldpi\ic_launcher.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\bin\res\drawable-mdpi\icon.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\bin\res\drawable-mdpi\ic_launcher.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\bin\res\drawable-xhdpi\icon.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\bin\res\drawable-xhdpi\ic_launcher.png \
+C:\Users\Fabby\Documents\NetBeansProjects\Gasolineras\bin\AndroidManifest.xml \
